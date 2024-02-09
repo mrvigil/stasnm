@@ -1,3 +1,53 @@
+breed [frogs frog]
+globals [answer time-left]
+to setup
+  clear-all
+  resize-world 0 10 0 10
+  set-patch-size 30
+  ask patches
+  [
+    set pcolor one-of [green green 52 53 54 55 56 57 32 33 34 35 36 37]
+  ]
+  create-frogs 3 + random 10
+  [
+    setxy random 9 random 9
+    set shape "frog top"
+    set color green
+  ]
+  ask frogs
+  [
+    if any? other frogs-here
+    [
+      fd 1
+    ]
+  ]
+ reset-timer
+
+  go
+end
+to go
+   set time-left 3 - timer
+  if time-left < 1
+  [
+    set answer count frogs
+   ask turtles 
+    [
+      hide-turtle
+      set color white
+    ]
+  ]
+  if time-left < -3
+  [
+   ask turtles 
+    [
+      show-turtle
+    ]
+  ]
+  if time-left < -7
+  [
+    setup
+  ] 
+end
 
 
 
