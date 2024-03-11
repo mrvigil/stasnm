@@ -1,5 +1,6 @@
 breed [sheep asheep]
 breed [wolves wolf]
+breed [lakes lake]
 turtles-own [hunger thirst health age gender fertile gestation]
 patches-own [growth]
 to setup
@@ -13,8 +14,31 @@ to setup
     [set pcolor green]
     [set pcolor 54]
   ]
+  make-a-lake
   makesheep number_of_sheep
   makewolves number_of_wolves
+  
+end
+to make-a-lake
+  create-lakes 1
+  [
+    setxy random 12 + 8 random 12 + 8
+    set size 0
+  ]
+  ask lakes
+  [
+    ask patches in-radius 5
+    [
+      set pcolor blue
+    ]
+    rt random 90
+    lt random 90
+    fd random 3
+    ask patches in-radius 5
+    [
+      set pcolor blue
+    ]
+  ]
 end
 to makesheep [number]
   create-sheep number
@@ -29,6 +53,7 @@ to makesheep [number]
     set hunger random 100
     set health random 100
     set age random 100
+    if pcolor = blue [die]
   ]
 end
 to makewolves [number]
@@ -41,6 +66,7 @@ to makewolves [number]
     set hunger random 100
     set health random 100
     set age random 100
+    if pcolor = blue [die]
   ]
 end
 to mv
@@ -48,13 +74,28 @@ to mv
   set hunger hunger + 1
   set age age + 1
   set health health - 1
-  if thirst > 100 [die]
+  if thirst > 200 [die]
   if hunger > 100 [die]
   if age > 1000 [die]
   if health < 0 [die]
-  fd 1
   rt random 45
   lt random 45
+  if [pcolor] of patch-ahead 1.5 = blue
+  [
+    set thirst 0
+    rt 180
+    fd 1
+  ]  
+   ifelse thirst < 60
+  [
+    rt random 45
+    lt random 45
+    fd random 10 / 10
+  ]
+  [
+    set heading towards lake 0
+    fd random 10 / 10
+  ]
 end
 to go
   ask sheep 
@@ -63,24 +104,32 @@ to go
     if [pcolor] of patch-here = green
     [
     ask patch-here
-    [
-      set pcolor 54
-      set growth 0
+      [
+        set pcolor 54
+        set growth 0
+      ]
+      set health health + 5 
+      set hunger hunger - 5
     ]
-    set health health + 2
-    set hunger hunger - 5
-  ]
   ]
   ask wolves [mv]
   ask patches
   [
-    set growth growth + 1
-    ifelse growth > 50
-    [set pcolor green]
-    [set pcolor 54]
+    if pcolor != blue
+    [
+      if growth > -1
+      [
+        set growth growth + 1
+        ifelse growth > 50
+        [set pcolor green]
+        [set pcolor 54]
+      ]
+    ]
   ]
   tick
 end
+  
+  
   
   
 @#$#@#$#@
