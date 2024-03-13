@@ -21,7 +21,7 @@ to setup
   makewolves number_of_wolves
 end
 to make-trees
-  create-trees  random 60 + 50
+  create-trees  random 40 + 20
   [
     set shape "tree"
     set color 32
