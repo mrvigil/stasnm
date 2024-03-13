@@ -164,6 +164,25 @@ to go
       set hunger hunger - 5
     ]
   ]
+  ask trees
+  [  
+    if pcolor = blue [die]
+    set age age + 1
+    set size age / 100
+    ask patches in-radius size
+      [
+        set growth 0
+      ]
+    if age > 200
+    [
+      set age 1
+      rt random 45
+      lt random 45
+      fd random 10 / 10
+      hatch 1    
+      die
+    ]
+  ]
   ask wolves 
   [
     if health > 400
