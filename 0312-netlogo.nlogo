@@ -1,6 +1,7 @@
 breed [sheep asheep]
 breed [wolves wolf]
 breed [lakes lake]
+breed [trees tree]
 turtles-own [hunger thirst health age gender fertility gestation wiggle speed]
 patches-own [growth]
 to setup
@@ -15,8 +16,25 @@ to setup
     [set pcolor 54]
   ]
   make-a-lake
+  make-trees
   makesheep number_of_sheep
   makewolves number_of_wolves
+end
+to make-trees
+  create-trees  random 60 + 50
+  [
+    set shape "tree"
+    set color 32
+    set age random 200 + 50
+    set size age / 100
+    setxy random 36 random 36
+    if pcolor = blue [die]
+    ask patches in-radius size
+    [
+      set growth 0
+      set pcolor 34
+    ]
+  ]
 end
 to make-a-lake
   create-lakes 1
