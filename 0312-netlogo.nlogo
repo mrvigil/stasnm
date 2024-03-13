@@ -161,7 +161,7 @@ to go
         set growth 0
       ]
       set health health + 5 
-      set hunger hunger - 5
+      set hunger hunger - 10
     ]
   ]
   ask trees
