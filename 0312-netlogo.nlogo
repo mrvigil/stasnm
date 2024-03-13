@@ -213,6 +213,7 @@ to go
     ]
   ]
   if ticks > 5000 [stop]
+  if count sheep < 1 [stop]
   tick
 end  
 @#$#@#$#@
