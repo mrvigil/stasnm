@@ -71,7 +71,7 @@ to makesheep [number]
     ]
     [
       set color pink
-      set fertility one-of [1 0 0 0 0 0]
+      set fertility one-of [1 0 0 0 0]
       set gestation 0
     ]
     set size 1
@@ -146,7 +146,7 @@ to go
           ]
           [
             set color pink
-            set fertility one-of [1 0 0 0 0 0]
+            set fertility one-of [1 0 0 0 0]
             set gestation 0
           ] 
         ]
