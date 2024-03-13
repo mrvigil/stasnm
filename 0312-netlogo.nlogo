@@ -17,7 +17,6 @@ to setup
   make-a-lake
   makesheep number_of_sheep
   makewolves number_of_wolves
-  
 end
 to make-a-lake
   create-lakes 1
@@ -45,7 +44,6 @@ to makesheep [number]
   [
     set speed random 10 / 10 + 1
     set wiggle random 180
-    set label wiggle
     set shape "sheep"
     set gender one-of ["male" "female"]
     ifelse gender = "male"
@@ -74,7 +72,6 @@ to makewolves [number]
 		set wiggle random 180
     set shape "wolf"
     set color black
-    set label wiggle
     set size 1
     setxy random-xcor random-ycor
     set hunger random 100
