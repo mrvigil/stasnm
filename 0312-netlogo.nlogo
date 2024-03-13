@@ -286,7 +286,7 @@ SLIDER
 number_of_sheep
 number_of_sheep
 0
-1000
+105
 50
 1
 1
