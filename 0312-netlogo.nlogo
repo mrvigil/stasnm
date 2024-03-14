@@ -292,7 +292,7 @@ number_of_sheep
 number_of_sheep
 0
 105
-50
+0
 1
 1
 NIL
@@ -307,7 +307,7 @@ number_of_wolves
 number_of_wolves
 0
 5
-2
+5
 1
 1
 NIL
