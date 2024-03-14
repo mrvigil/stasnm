@@ -129,10 +129,13 @@ end
 to go
   ask sheep 
   [
-    if fertility = 1     
+    ifelse fertility = 0
+    [
+      set fertility one-of [1 0 0 0 0 0]
+    ]
     [
       set gestation gestation + 1
-      if gestation > 20
+      if gestation > 30
       [
         set gestation 0
         hatch 1
@@ -152,6 +155,7 @@ to go
         ]
       ]
     ]
+    
     mv
     if [pcolor] of patch-here = green
     [
@@ -185,7 +189,7 @@ to go
   ]
   ask wolves 
   [
-    if health > 400
+    if health > 700
     [
       set health 100
       hatch 1
@@ -213,7 +217,8 @@ to go
     ]
   ]
   if ticks > 5000 [stop]
-  if count sheep < 1 [stop]
+  if count sheep < 1 [if count wolves < 1 [stop]]
+  if count wolves < 1 [makewolves 1]
   tick
 end  
 @#$#@#$#@
