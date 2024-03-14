@@ -189,7 +189,7 @@ to go
   ]
   ask wolves 
   [
-    if health > 700
+    if health > 800
     [
       set health 100
       hatch 1
