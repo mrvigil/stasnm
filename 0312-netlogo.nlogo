@@ -300,9 +300,9 @@ HORIZONTAL
 
 SLIDER
 0
-175
-180
-208
+170
+170
+203
 number_of_wolves
 number_of_wolves
 0
@@ -316,7 +316,7 @@ HORIZONTAL
 MONITOR
 0
 210
-75
+70
 255
 NIL
 count sheep
@@ -325,10 +325,10 @@ count sheep
 11
 
 MONITOR
-0
-215
-165
-260
+75
+210
+145
+255
 NIL
 count wolves
 17
@@ -337,9 +337,9 @@ count wolves
 
 PLOT
 0
-316
+265
 190
-455
+404
 Populations
 Time
 pop.
