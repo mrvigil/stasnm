@@ -189,9 +189,9 @@ to go
   ]
   ask wolves 
   [
-    if health > 800
+    if health > 1500
     [
-      set health 100
+      set health random 60
       hatch 1
       set age 1
     ]
