@@ -189,9 +189,9 @@ to go
   ]
   ask wolves 
   [
-    if health > 1500
+    if health > 2000
     [
-      set health random 60
+      set health random 50
       hatch 1
       set age 1
     ]
@@ -218,7 +218,7 @@ to go
   ]
   if ticks > 5000 [stop]
   if count sheep < 1 [if count wolves < 1 [stop]]
-  if count wolves < 1 [makewolves 1]
+  if count wolves < 0 [makewolves 1]
   tick
 end  
 @#$#@#$#@
