@@ -351,9 +351,9 @@ true
 false
 "" ""
 PENS
-"wolves" 1 0 -16448251 true "" "plot count wolves"
+"wolves" 1 0 -16448251 true "" "plot count wolves * 5"
 "Green Grass" 1 0 -10702272 true "" "plot count patches with [pcolor = green] / 10"
-"sheep" 1 0 -1973972 true "" "plot count sheep"
+"sheep" 1 0 -1973972 true "" "plot count sheep / 10"
 @#$#@#$#@
 ## WHAT IS IT?
 
